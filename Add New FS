@@ -1,0 +1,14 @@
+## Run the following commands on GZ
+==========================================
+
+zfs create -o mountpoint=/zones/zonename GZname-ZH/zonename-ZR
+
+zfs create -o mountpoint=none GZname-ZH/zonename-ZH/ford
+zfs set quota=10G GZname-ZH/zonename-ZH/ford
+
+zonecfg -z zonename"add fs;set dir=/ford;set special=GZname-ZH/zonename-ZH/ford;set type=zfs;end;commit;exit"
+
+zfs create -o mountpoint=none GZname-ZH/zonename-ZH/data_pool
+zfs set quota=10G GZname/zonename-ZH/data_pool
+
+zonecfg -z zonename"add fs;set dir=/data_pool;set special=GZname-ZH/zonename-ZH/data_pool;set type=zfs;end;commit;exit"
