@@ -1,0 +1,11 @@
+### Login to GZ as root
+###
+
+zonecfg -z zonename "select capped-memory swap=64;set swap=128g;end;commit;exit"
+
+
+#Increase the swap space dynamically run the following commands as root
+
+#prctl -n zone.max-swap -i zone zonename
+#prctl -n zone.max-swap -r -v 128gb -i zone zonename
+#prctl -n zone.max-swap -i zone zonename
